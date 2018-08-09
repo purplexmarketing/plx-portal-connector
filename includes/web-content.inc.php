@@ -297,5 +297,5 @@ function plx_portal_output_web_content($atts) {
 	} //END loop through shortcodes array
 	
 	//return the content
-	return $webcontent_content;
+	return do_shortcode($webcontent_content);
 }

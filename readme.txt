@@ -4,7 +4,7 @@ Tags: portal, purplex, plx, ascotgroup
 Requires at least: 4.3
 Tested up to: 4.9.6
 Requires PHP: 5.6
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: MIT
 License URI: https://opensource.org/licenses/MIT
 
@@ -27,3 +27,6 @@ This plugin allows your WordPress site to interact with the Portal system via it
 == Changelog ==
 = 1.0.0 =
 * Initial release
+
+= 1.0.1 =
+* Fixed issue where existing registered shortcodes were not being processed when outputting Web Content
