@@ -2,7 +2,7 @@
 /**
 * Plugin Name: PLX Portal Connector
 * Description: Allows the Portal system to connect your WordPress site
-* Version: 1.0.1
+* Version: 1.0.2
 * Author: Purplex
 * Author URI: http://plx.mk
 * License: MIT
@@ -37,8 +37,8 @@ function plx_icon() {
 	wp_enqueue_style('plx_icon');
 }
 add_action('admin_enqueue_scripts', 'plx_icon');
-add_action('login_enqueue_scripts', 'plx_icon');
-add_action('wp_enqueue_scripts', 'plx_icon');
+//add_action('login_enqueue_scripts', 'plx_icon');
+//add_action('wp_enqueue_scripts', 'plx_icon');
 
 // Function to load admin scripts
 function plx_portal_admin_scripts() {
@@ -57,7 +57,7 @@ add_action('admin_footer', 'plx_portal_admin_scripts');
 
 // Create plugin menu items
 function plx_portal_plugin_menu() {
-	add_menu_page('Portal', 'Portal', 'manage_options', 'plx-portal', '', 'dashicons-admin-generic');
+	add_menu_page('Portal', 'Portal', 'manage_options', 'plx-portal', '', 'none');
 	add_submenu_page('plx-portal', 'General Portal Settings', 'General', 'manage_options', 'plx-portal', 'plx_portal_page');
 	add_submenu_page('plx-portal', 'Web Content', 'Web Content', 'manage_options', 'edit.php?post_type=plx_web_content');
 }
