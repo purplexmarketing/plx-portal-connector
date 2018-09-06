@@ -179,15 +179,20 @@ add_filter('wp_insert_post_data', 'plx_download_and_inject_web_content', 99, 2);
 
 // Save field attributes
 function plx_field_attributes_metabox($post_id, $post) {
+
+	//check this is the web content post type
+	if (!(get_post_type($post_id) == 'plx_web_content')) {
+		return $post->ID;
+	}
 	
 	//check the nonce value wasn't invalid
-	if ( !wp_verify_nonce( $_POST['plx_meta_noncename'], PLX_PORTAL_PLUGIN_BASENAME )) {
+	if ( isset($_POST['plx_meta_noncename']) && !wp_verify_nonce( $_POST['plx_meta_noncename'], PLX_PORTAL_PLUGIN_BASENAME )) {
 		return $post->ID;
 	}
 	
 	//check this isn't an autosave
 	if ( defined('DOING_AUTOSAVE') && DOING_AUTOSAVE ) {
-      return $post->ID;
+    return $post->ID;
   }
   
   //check this user can edit
@@ -198,31 +203,41 @@ function plx_field_attributes_metabox($post_id, $post) {
 	//turn shortcodes into an array
 	$field_array = explode(" ", $post->post_excerpt);
 	
-	//loop through each shortcode
-	foreach ($field_array as &$field_value) {
+	//check if the array contains fields
+	if (!empty($field_array)) {
+	
+		//loop through each shortcode
+		foreach ($field_array as &$field_value) {
+			
+			//breakdown shortcode into the field name suffix
+			$field_value_text = str_replace("[", "", $field_value);
+			$field_value_text = str_replace("]", "", $field_value_text);
+			$field_value_name = str_replace("-", "_", $field_value_text);
+			
+			//check field value name contained content
+			if (!($field_value_name == '') && isset($_POST['_plx_portal_web_content_shortcode_' . $field_value_name])) {
+			
+				//check the field is not the shortcode value (we don't want to save the value if it is)
+				if (!($field_value == $_POST['_plx_portal_web_content_shortcode_' . $field_value_name])) {
+					
+					//add field value to the meta array
+					$add_field_meta['_plx_portal_web_content_shortcode_' . $field_value_name] = $_POST['_plx_portal_web_content_shortcode_' . $field_value_name];
+					
+				} else {
+					
+					//delete post meta item
+					delete_post_meta($post->ID, '_plx_portal_web_content_shortcode_' . $field_value_name);
+					
+				} //END check the field is not the shortcode value (we don't want to save the value if it is)
+				
+			} //END check field value name contained content
+			
+		} //END loop through each shortcode
 		
-		//breakdown shortcode into the field name suffix
-		$field_value_text = str_replace("[", "", $field_value);
-		$field_value_text = str_replace("]", "", $field_value_text);
-		$field_value_name = str_replace("-", "_", $field_value_text);
-		
-		//check the field is not the shortcode value (we don't want to save the value if it is)
-		if (!($field_value == $_POST['_plx_portal_web_content_shortcode_' . $field_value_name])) {
-			
-			//add field value to the meta array
-			$add_field_meta['_plx_portal_web_content_shortcode_' . $field_value_name] = $_POST['_plx_portal_web_content_shortcode_' . $field_value_name];
-			
-		} else {
-			
-			//delete post meta item
-			delete_post_meta($post->ID, '_plx_portal_web_content_shortcode_' . $field_value_name);
-			
-		} //END check the field is not the shortcode value (we don't want to save the value if it is)
-		
-	} //END loop through each shortcode
+	} //END check if the array contains fields
 	
 	//check if the meta array exists
-	if (is_array($add_field_meta)) {
+	if (isset($add_field_meta) && is_array($add_field_meta)) {
 	
 		//loop through the field values in the meta array
 		foreach ($add_field_meta as $key => $value) {
