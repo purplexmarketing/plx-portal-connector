@@ -2,9 +2,9 @@
 Contributors: mattstone-plx
 Tags: portal, purplex, plx, ascotgroup
 Requires at least: 4.3
-Tested up to: 5.1.1
+Tested up to: 4.9.8
 Requires PHP: 5.6
-Stable tag: 1.1.0
+Stable tag: 1.0.6
 License: MIT
 License URI: https://opensource.org/licenses/MIT
 
@@ -48,7 +48,3 @@ This plugin allows your WordPress site to interact with the Portal system via it
 
 = 1.0.6 =
 * Fixed bug with Web Content where field attributes were unexpectedly deleted when updating content using Update button
-
-= 1.1.0 =
-* Added ability to create text or html snippets which can then be used anywhere in WordPress via shortcodes
-* Renamed sidebar menu from Portal to PLX in advance of an upcoming name change and purpose of this plugin
