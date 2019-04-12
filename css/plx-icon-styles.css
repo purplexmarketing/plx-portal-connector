@@ -49,3 +49,7 @@
 .login #login h1 a {
 	background-image: none, url("../fonts/plx-icon.svg#plx-icon") format("svg");	
 }
+
+.plx-full-width {
+	width: 100%;
+}
