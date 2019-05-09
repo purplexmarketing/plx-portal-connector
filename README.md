@@ -1,4 +1,4 @@
-## PLX Portal Connector for Wordpress
+## PLX Portal Connector v1.1.1 for Wordpress
 
 Connects your WordPress site with the Purplex Portal system.
 
@@ -12,4 +12,4 @@ Coded by Matt Stone (matt@plx.mk)
 
 ## License
 
-This plugin is considered open source however the API it connects to is proprietary software. It has been released under an MIT License.
+This plugin is considered open source however the API it connects to is proprietary software. It has been released under a GPLv3 License.

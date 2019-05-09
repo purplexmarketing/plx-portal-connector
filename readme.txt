@@ -1,14 +1,14 @@
 === PLX Portal Connector ===
 Contributors: mattstone-plx
 Tags: portal, purplex, plx, ascotgroup
-Requires at least: 4.3
-Tested up to: 4.9.8
-Requires PHP: 5.6
-Stable tag: 1.0.6
-License: MIT
+Requires at least: 4.5
+Tested up to: 5.2
+Requires PHP: 5.6.20
+Stable tag: 1.1.1
+License: GPL3
 License URI: https://opensource.org/licenses/MIT
 
-Connects your WordPress site with the Portal system.
+Connects your WordPress site with the Portal system and provides a range of useful utilities to help with management of site content.
 
 == Description ==
 This plugin allows your WordPress site to interact with the Portal system via it's API providing functionality such as centralised Web Content management. To use this plugin you will need an existing Portal account in order to setup the required API Key to connect.
@@ -48,3 +48,11 @@ This plugin allows your WordPress site to interact with the Portal system via it
 
 = 1.0.6 =
 * Fixed bug with Web Content where field attributes were unexpectedly deleted when updating content using Update button
+
+= 1.1.0 =
+* Added the ability to put the site admin into maintenance mode via the Portal
+* Added the snippets function which lets you create shortcodes to place content anywhere on the site
+* Added the TinyMCE table plugin to extend the Classic Editor interface
+
+= 1.1.1 =
+* Hotfix to add missing plugin files for older TinyMCE versions
