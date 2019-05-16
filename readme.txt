@@ -4,7 +4,7 @@ Tags: portal, purplex, plx, ascotgroup
 Requires at least: 4.5
 Tested up to: 5.2
 Requires PHP: 5.6.20
-Stable tag: 1.1.1
+Stable tag: 1.1.2
 License: GPL3
 License URI: https://opensource.org/licenses/MIT
 
@@ -56,3 +56,6 @@ This plugin allows your WordPress site to interact with the Portal system via it
 
 = 1.1.1 =
 * Hotfix to add missing plugin files for older TinyMCE versions
+
+= 1.1.2 =
+* Fixed bug with the Portal Web Content download feature

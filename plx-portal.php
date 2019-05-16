@@ -2,7 +2,7 @@
 /**
 * Plugin Name: PLX Portal Connector
 * Description: Allows the Portal system to connect your WordPress site and provides some useful content management tools
-* Version: 1.1.1
+* Version: 1.1.2
 * Author: Purplex
 * Author URI: http://plx.mk
 * License: GPL3

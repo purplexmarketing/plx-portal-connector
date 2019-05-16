@@ -146,7 +146,7 @@ function plx_download_and_inject_web_content($data, $postarr) {
 		$plx_post_array = array('hash' => $plx_connector_key);
 
 	  //make call to api
-	  $plx_api_result = plx_portal_api($plx_api_key, 'v1/hosting', $plx_post_array);
+	  $plx_api_result = plx_portal_api($plx_api_key, 'v1/webcontent', $plx_post_array);
 
 	  //decode response
 		$plx_api_response = json_decode($plx_api_result, true);

@@ -1,4 +1,4 @@
-## PLX Portal Connector v1.1.1 for Wordpress
+## PLX Portal Connector v1.1.2 for Wordpress
 
 Connects your WordPress site with the Purplex Portal system.
 
